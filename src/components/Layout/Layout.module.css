@@ -1,0 +1,95 @@
+/* ── App shell ─────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-void);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-lg);
+  padding: 0 var(--gap-lg);
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border-default);
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  font-size: 1.3rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(167, 139, 250, 0.6));
+}
+
+.logoText {
+  font-family: var(--font-ui);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.logoText span {
+  color: var(--text-accent);
+}
+
+.tagline {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .tagline { display: block; }
+}
+
+.headerDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--border-default);
+  flex-shrink: 0;
+}
+
+.headerRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-lg);
+  overflow: hidden;
+}
+
+/* ── Dashboard grid ─────────────────────────────────────────── */
+.grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr 240px;
+  grid-template-rows: 1fr 260px;
+  grid-template-areas:
+    "orderbook pricechart trades"
+    "orderbook depthchart trades";
+  gap: var(--gap-sm);
+  padding: var(--gap-sm);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.areaOrderbook    { grid-area: orderbook; min-height: 0; overflow: hidden; }
+.areaPricechart   { grid-area: pricechart; min-height: 0; overflow: hidden; }
+.areaTrades       { grid-area: trades; min-height: 0; overflow: hidden; }
+.areaDepthchart   { grid-area: depthchart; min-height: 0; overflow: hidden; }

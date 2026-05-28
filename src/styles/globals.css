@@ -1,0 +1,119 @@
+/* ── CSS Custom Properties (Design Tokens) ───────────────────── */
+:root {
+  /* Background layers */
+  --bg-void:        #0a0a0f;
+  --bg-base:        #0d0d14;
+  --bg-surface:     #12121c;
+  --bg-elevated:    #171724;
+  --bg-hover:       #1c1c2e;
+
+  /* Borders */
+  --border-subtle:  #1e1e30;
+  --border-default: #252538;
+  --border-strong:  #2e2e48;
+
+  /* Trading colors */
+  --green:          #00c087;
+  --green-dim:      rgba(0, 192, 135, 0.12);
+  --green-mid:      rgba(0, 192, 135, 0.25);
+  --red:            #f23645;
+  --red-dim:        rgba(242, 54, 69, 0.12);
+  --red-mid:        rgba(242, 54, 69, 0.25);
+
+  /* Text */
+  --text-primary:   #e2e2f0;
+  --text-secondary: #8888aa;
+  --text-muted:     #4a4a6a;
+  --text-accent:    #a78bfa;
+
+  /* Fonts */
+  --font-mono:      'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+  --font-ui:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Spacing */
+  --gap-xs:   4px;
+  --gap-sm:   8px;
+  --gap-md:   12px;
+  --gap-lg:   16px;
+  --gap-xl:   24px;
+
+  /* Panel radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Transitions */
+  --transition-fast: 80ms ease;
+  --transition-base: 150ms ease;
+}
+
+/* ── Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 13px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbars ──────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ── Typography helpers ─────────────────────────────────────── */
+.mono { font-family: var(--font-mono); }
+
+.text-green { color: var(--green); }
+.text-red   { color: var(--red); }
+.text-muted { color: var(--text-muted); }
+.text-secondary { color: var(--text-secondary); }
+
+/* ── Panel base ─────────────────────────────────────────────── */
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  padding: var(--gap-sm) var(--gap-md);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+}

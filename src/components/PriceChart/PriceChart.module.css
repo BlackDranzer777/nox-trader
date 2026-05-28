@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-sm) var(--gap-md);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.timeframes {
+  display: flex;
+  gap: 4px;
+}
+
+.tfBtn {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  letter-spacing: 0.05em;
+}
+
+.tfBtn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+}
+
+.tfBtn.active {
+  background: var(--bg-hover);
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+.chartWrapper {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.chartInner {
+  position: absolute;
+  inset: 0;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}

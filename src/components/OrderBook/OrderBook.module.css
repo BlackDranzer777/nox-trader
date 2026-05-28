@@ -1,0 +1,158 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-sm) var(--gap-md);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.spreadBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+}
+
+.colHeaders {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 4px var(--gap-md);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.colHeaders span:last-child,
+.colHeaders span:nth-child(2) {
+  text-align: right;
+}
+
+/* Asks sit above the spread — scroll bottom-aligned */
+.asksSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.asksList {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow: hidden;
+}
+
+.spreadRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-md);
+  padding: 5px var(--gap-md);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  flex-shrink: 0;
+}
+
+.spreadPrice {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.spreadLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.bidsSection {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.bidsList {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── OrderBookRow ──────────────────────────────────────────── */
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2px var(--gap-md);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  cursor: default;
+  transition: background var(--transition-fast);
+  user-select: none;
+}
+
+.row:hover {
+  background: var(--bg-hover) !important;
+}
+
+.rowBid .price { color: var(--green); }
+.rowAsk .price { color: var(--red); }
+
+.price {
+  font-weight: 500;
+  z-index: 1;
+  position: relative;
+}
+
+.qty,
+.total {
+  text-align: right;
+  color: var(--text-secondary);
+  z-index: 1;
+  position: relative;
+}
+
+/* The volume depth bar that fills from the right */
+.bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  opacity: 0.18;
+  pointer-events: none;
+  transition: width 100ms ease;
+}
+
+.rowBid .bar { background: var(--green); }
+.rowAsk .bar { background: var(--red); }
